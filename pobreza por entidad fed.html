@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pobreza por entidad federativa</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['geochart']});
+    google.charts.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['Entidad federativa', '2008 (%)', '2018 (%)'],
+        ['Aguascalientes', 28.5, 37.6],
+        ['Baja California', 22.1, 26.0],
+        ['Baja California Sur', 18.3, 21.4],
+        ['Campeche', 35.7, 45.9],
+        ['Coahuila', 24.3, 32.7],
+        ['Colima', 32.5, 27.4],
+        ['Chiapas', 77.0, 77.0],
+        ['Chihuahua', 31.9, 32.1],
+        ['Ciudad de México', 27.6, 27.6], // Antes "Distrito Federal"
+        ['Durango', 38.6, 48.4],
+        ['Guanajuato', 39.2, 44.1],
+        ['Guerrero', 68.4, 68.4],
+        ['Hidalgo', 46.1, 55.2],
+        ['Jalisco', 34.8, 36.7],
+        ['México', 52.3, 43.6],
+        ['Michoacán', 55.2, 55.5],
+        ['Morelos', 48.9, 48.8],
+        ['Nayarit', 37.6, 41.7],
+        ['Nuevo León', 26.7, 21.4],
+        ['Oaxaca', 61.8, 61.8],
+        ['Puebla', 62.9, 64.6],
+        ['Querétaro', 38.1, 35.2],
+        ['Quintana Roo', 30.2, 33.7],
+        ['San Luis Potosí', 51.7, 50.9],
+        ['Sinaloa', 36.9, 32.4],
+        ['Sonora', 25.4, 27.1],
+        ['Tabasco', 48.2, 53.8],
+        ['Tamaulipas', 32.6, 33.8],
+        ['Tlaxcala', 49.8, 59.6],
+        ['Veracruz', 51.2, 51.2],
+        ['Yucatán', 42.4, 47.0],
+        ['Zacatecas', 48.3, 50.1]
+      ]);
+
+      var options = {
+        title: 'Pobreza por entidad federativa',
+        region: 'MX',
+        resolution: 'provinces',
+        colorAxis: {colors: ['#FFFFFF', '#FF0000']} // Blanco a Rojo para la escala
+      };
+
+      var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <h1>Pobreza por entidad federativa</h1> <!-- Título de la página -->
+  <div id="regions_div" style="width: 900px; height: 500px;"></div>
+</body>
+</html>
